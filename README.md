@@ -83,7 +83,7 @@ The final .ovf file will be inside the output-virtualbox-ovf directory. The fina
   - osm-history-splitter
   - openstreetmap-carto
 
-  ### Ubunut Personal Package Archives (PPAs)
+  ###Ubuntu Personal Package Archives (PPAs):
 
   - ubuntugis/ppa
   - kakrueger/osm-unstable
