@@ -8,8 +8,7 @@ The main purposed of this box is to create an environment that makes it easy to 
 $ vagrant init omnitom/osmbox
 $ vagrant up
 ```
-
-
+#####Building osmbox yourself:
 
 Three different packer templates are meant to be run in order. This is done so new features can be added in an incremental fashion.
 
