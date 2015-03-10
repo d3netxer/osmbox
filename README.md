@@ -3,7 +3,8 @@
 The main purposed of this box is to create an environment that makes it easy to create historical mapping tiles in OpenStreetMap.
 
 #####The final vagrant box is on [ATLAS](https://atlas.hashicorp.com/omnitom/boxes/osmbox) and is named omnitom/osmbox
-#####Install Vagrant and see [Getting Started](http://docs.vagrantup.com/v2/getting-started/index.html) example:
+#####Install Vagrant and see [Getting Started](http://docs.vagrantup.com/v2/getting-started/index.html) 
+#####example:
 ```Batchfile
 $ vagrant init omnitom/osmbox
 $ vagrant up
