@@ -13,7 +13,7 @@ $ vagrant up
 
 Three different packer templates are meant to be run in order. This is done so new features can be added in an incremental fashion.
 
-Install [packer](https://www.packer.io/intro/getting-started/setup.html) first 
+Install [packer](https://www.packer.io/intro/getting-started/setup.html) first. 
 
 -packer build osmbox-step1-install-os.json
 
