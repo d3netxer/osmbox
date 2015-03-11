@@ -14,6 +14,7 @@ $ vagrant up
 Three different packer templates are meant to be run in order. This is done so new features can be added in an incremental fashion.
 
 -install packer
+
 -packer build osmbox-step1-install-os.json
 
 This will output a osmbox-step1 .ovf and .vmdk file in the newly created output-virtualbox-iso directory
