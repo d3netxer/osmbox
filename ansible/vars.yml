@@ -2,21 +2,28 @@
 system_packages:
   - build-essential
   - git
+  - curl
+  - make
+  - vim
+  - unzip
+  - nodejs 
+  - graphicsmagick
   - libevent-dev
   - nginx
-  - python-setuptools
   - clang 
-  - python-software-properties 
   - whois
+  - python-setuptools
+  - python-dateutil
+  - python-software-properties 
   - python-gdal 
   - python-mapnik2 
   - python-pyproj
   - python-dev 
-  - libpq-dev
+  - python-imaging
   - python-virtualenv
+  - libpq-dev
   - libgdal1h
   - libgdal-dev
-  - make
   - postgresql-9.1
   - postgresql-9.1-postgis-2.0
   - postgresql-contrib-9.1
@@ -35,10 +42,6 @@ system_packages:
   - libgdal1-dev
   - libproj-dev
   - subversion
-  - vim
-  - unzip
-  - python-dateutil
-  - graphicsmagick
   - doxygen
   - graphviz
   - pgadmin3
@@ -46,7 +49,10 @@ system_packages:
   - osm2pgsql
   - tilemill 
   - libmapnik 
-  - nodejs 
   - gdal-bin
   - mapnik-utils
   - qgis
+  - openjdk-7-jdk 
+  - proj 
+  - libprotobuf-c0-dev
+

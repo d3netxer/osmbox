@@ -3,7 +3,8 @@
     {
   "type": "virtualbox-ovf",
   "vm_name": "osmbox-step2",
-  "source_path": "output-virtualbox-iso/osmbox-step1.ovf",
+  "source_path": "output-virtualbox-iso/osmbox.ovf",
+  "output_directory":"output-virtualbox-ovf2/",
   "ssh_username": "vagrant",
   "ssh_password": "vagrant",
   "ssh_wait_timeout": "30s",

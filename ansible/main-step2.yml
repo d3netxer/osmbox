@@ -19,12 +19,15 @@
   - name: install psycopg2
     pip: name=psycopg2
   - name: clone repo 
-    git: clone=yes repo=https://github.com/joto/osmium dest=/srv/osmium
+    git: clone=yes repo=https://github.com/joto/osmium dest=/opt/osmium 
   - name: clone repo 2
-    git: clone=yes repo=https://github.com/MaZderMind/osm-history-splitter dest=/srv/osm-history-splitter
+    git: clone=yes repo=https://github.com/MaZderMind/osm-history-splitter dest=/opt/osm-history-splitter
   - name: clone repo 3
-    git: clone=yes repo=https://github.com/gravitystorm/openstreetmap-carto dest=/srv/openstreetmap-carto
+    git: clone=yes repo=https://github.com/gravitystorm/openstreetmap-carto dest=/opt/openstreetmap-carto
   - name: clone repo 4
-    git: clone=yes repo=https://github.com/d3netxer/osm-history dest=/srv/osm-history
+    git: clone=yes repo=https://github.com/d3netxer/osm-history dest=/opt/osm-history
+  - name: clone repo 5
+    git: clone=yes repo=https://github.com/state-hiu/cybergis-scripts.git dest=/opt/cybergis-scripts.git
+
 
 

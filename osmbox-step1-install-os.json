@@ -15,6 +15,7 @@
       "disk_size": 40960,
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "Ubuntu_64",
+      "guest_additions_mode":"upload",
       "hard_drive_interface": "sata",
       "headless": "{{ user `headless` }}",
       "http_directory": "http",
@@ -44,7 +45,7 @@
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "osmbox-step1"
+      "vm_name": "osmbox"
     }
   ],
   "provisioners": [
