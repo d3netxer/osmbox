@@ -23,11 +23,9 @@ This will output a osmbox-step1 .ovf and .vmdk file in the newly created output-
 
 This will output a .ovf file in the newly created output-virtualbox-ovf directory
 
--re-name the output-virtualbox-ovf directory output-virtualbox-ovf2
-
 -packer build osmbox-step3-configure-system.json
 
-The final .ovf file will be inside the output-virtualbox-ovf directory. The final Vagrant box file will be inside the step3-box directory.
+The final .ovf file will be inside the output-virtualbox-ovf3 directory. The final Vagrant box file will be inside the step3-box directory.
 
 ##What's installed
 
@@ -36,21 +34,28 @@ The final .ovf file will be inside the output-virtualbox-ovf directory. The fina
 ###system_packages:
   - build-essential
   - git
+  - curl
+  - make
+  - vim
+  - unzip
+  - nodejs 
+  - graphicsmagick
   - libevent-dev
   - nginx
-  - python-setuptools
   - clang 
-  - python-software-properties 
   - whois
+  - python-setuptools
+  - python-dateutil
+  - python-software-properties 
   - python-gdal 
   - python-mapnik2 
   - python-pyproj
   - python-dev 
-  - libpq-dev
+  - python-imaging
   - python-virtualenv
+  - libpq-dev
   - libgdal1h
   - libgdal-dev
-  - make
   - postgresql-9.1
   - postgresql-9.1-postgis-2.0
   - postgresql-contrib-9.1
@@ -69,10 +74,6 @@ The final .ovf file will be inside the output-virtualbox-ovf directory. The fina
   - libgdal1-dev
   - libproj-dev
   - subversion
-  - vim
-  - unzip
-  - python-dateutil
-  - graphicsmagick
   - doxygen
   - graphviz
   - pgadmin3
@@ -80,18 +81,38 @@ The final .ovf file will be inside the output-virtualbox-ovf directory. The fina
   - osm2pgsql
   - tilemill 
   - libmapnik 
-  - nodejs 
   - gdal-bin
   - mapnik-utils
   - qgis
-  - django
-  - psycopg2
+  - openjdk-7-jdk 
+  - proj 
+  - libprotobuf-c0-dev
 
   ###repos:
 
   - osmium
   - osm-history-splitter
   - openstreetmap-carto
+  - openstreetmap-history
+  - protobuf
+  - protobuf-c
+
+  ###openstreetmap-history gemfile installs:
+
+  - mongo 1.11.1
+  - bson 1.11.1
+  - bson_ext 1.11.1
+  - rgeo 0.3.20
+  - descriptive_statistics 2.5.1
+  - htmlentities 4.3.3
+  - jekyll 2.5.3
+  - pbf_parser 0.2.0
+  - nokogiri 1.6.6.2
+  - nori 2.4.0
+  - rspec 3.1.0
+  - byebug
+
+  ###protobuf and protobuf-c are both compiled and installed
 
   ###Ubuntu Personal Package Archives (PPAs):
 
