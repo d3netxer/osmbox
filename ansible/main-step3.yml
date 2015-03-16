@@ -19,6 +19,8 @@
     git: clone=yes repo=https://github.com/google/protobuf dest=/opt/protobuf
   - name: autogen protobuf
     command: "./autogen.sh chdir=/opt/protobuf/"
+  - name: configure protobuf
+    command: "./configure chdir=/opt/protobuf/"
   - name: make protobuf
     command: "make chdir=/opt/protobuf/"
   - name: make check protobuf
@@ -33,14 +35,25 @@
     command: "./configure chdir=/opt/protobuf-c/"
   - name: sudo ldconfig
     command: ldconfig
-  - name: make protobuf
+  - name: make 
     command: "make chdir=/opt/protobuf-c/"
   - name: make install protobuf
     command: "make install chdir=/opt/protobuf-c/"
   - name: change permissions
     file: path=/opt owner=vagrant group=vagrant state=directory recurse=yes
+  - name: change permissions
+    file: path=/usr/local/rvm owner=vagrant group=vagrant state=directory recurse=yes
 
 #play 2
+- hosts: all
+  sudo: no
+  gather_facts: no
+
+  tasks:
+  - name: bundler install
+    command: "bundle install chdir=/opt/osm-history/"
+
+#play 3
 - hosts: all
   sudo_user: postgres
   sudo: yes
