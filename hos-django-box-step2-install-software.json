@@ -2,8 +2,8 @@
   "builders": [
     {
   "type": "virtualbox-ovf",
-  "vm_name": "osmbox-step2",
-  "source_path": "output-virtualbox-iso/osmbox.ovf",
+  "vm_name": "hosdjangobox-step2",
+  "source_path": "output-virtualbox-iso/hosdjangobox.ovf",
   "output_directory":"output-virtualbox-ovf2/",
   "ssh_username": "vagrant",
   "ssh_password": "vagrant",
@@ -14,7 +14,7 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "512"
+          "1024"
         ],
         [
           "modifyvm",
@@ -38,7 +38,7 @@
   "post-processors": [
     {
       "keep_input_artifact": true,
-      "output": "step2-box/osmbox-step2.box",
+      "output": "step2-box/hosdjangobox-step2.box",
       "type": "vagrant"
     }
   ],
