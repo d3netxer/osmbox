@@ -2,8 +2,8 @@
   "builders": [
     {
   "type": "virtualbox-ovf",
-  "vm_name": "osmbox-step3",
-  "source_path": "output-virtualbox-ovf2/osmbox-step2.ovf",
+  "vm_name": "hosdjangobox-step3",
+  "source_path": "output-virtualbox-ovf2/hosdjangobox-step2.ovf",
   "output_directory":"output-virtualbox-ovf3/",
   "ssh_username": "vagrant",
   "ssh_password": "vagrant",
@@ -38,7 +38,7 @@
   "post-processors": [
     {
       "keep_input_artifact": true,
-      "output": "step3-box/osmbox-step3.box",
+      "output": "step3-box/hosdjangobox-step3.box",
       "type": "vagrant"
     }
   ],
