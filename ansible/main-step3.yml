@@ -4,27 +4,54 @@
   vars_files:
     - vars.yml
   sudo: yes
-  #roles:
-  #- { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
+  roles:
+  - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
   tasks:
-  - name: clone hos-django repo 
-    git: clone=yes repo=https://github.com/d3netxer/hos-django dest=/opt/hos-django 
+  - name: make doc osmium
+    command: "make doc chdir=/opt/osmium/"
+  - name: make install osmium
+    command: "make install chdir=/opt/osmium/"
+  - name: make osm-history-splitter
+    command: "make chdir=/opt/osm-history-splitter/" 
+  - name: add rvm to bashrc
+    lineinfile: dest=/home/vagrant/.bashrc line="source /etc/profile.d/rvm.sh"
+  - name: clone repo 6
+    git: clone=yes repo=https://github.com/google/protobuf dest=/opt/protobuf
+  - name: autogen protobuf
+    command: "./autogen.sh chdir=/opt/protobuf/"
+  - name: configure protobuf
+    command: "./configure chdir=/opt/protobuf/"
+  - name: make protobuf
+    command: "make chdir=/opt/protobuf/"
+  - name: make check protobuf
+    command: "make check chdir=/opt/protobuf/"
+  - name: make install protobuf
+    command: "make install chdir=/opt/protobuf/"
+  - name: clone repo 7
+    git: clone=yes repo=https://github.com/protobuf-c/protobuf-c dest=/opt/protobuf-c
+  - name: autogen protobuf
+    command: "./autogen.sh chdir=/opt/protobuf-c/"
+  - name: configure protobuf
+    command: "./configure chdir=/opt/protobuf-c/"
+  - name: sudo ldconfig
+    command: ldconfig
+  - name: make 
+    command: "make chdir=/opt/protobuf-c/"
+  - name: make install protobuf
+    command: "make install chdir=/opt/protobuf-c/"
   - name: change permissions
     file: path=/opt owner=vagrant group=vagrant state=directory recurse=yes
-  - name: export DJANGO_SETTINGS_MODULE to bashrc
-    lineinfile: dest=~/.bashrc line="DJANGO_SETTINGS_MODULE=hos2.settings"
-  - name: export repo to PYTHONPATH
-    lineinfile: dest=~/.bashrc line="PYTHONPATH=/opt/hos-django/:$PYTHONPATH"
-
+  - name: change permissions
+    file: path=/usr/local/rvm owner=vagrant group=vagrant state=directory recurse=yes
 
 #play 2
-#- hosts: all
-#  sudo: no
-#  gather_facts: no
+- hosts: all
+  sudo: no
+  gather_facts: no
 
-#  tasks:
-#  - name: bundler install
-#    command: "bundle install chdir=/opt/osm-history/"
+  tasks:
+  - name: bundler install
+    command: "bundle install chdir=/opt/osm-history/"
 
 #play 3
 - hosts: all
@@ -34,9 +61,10 @@
 
   tasks:
   - name: create database
-    postgresql_db: name=hos1
+    postgresql_db: name=vagrant
   - name: create vagrant postgres user
-    postgresql_user: db=hos1 name=vagrant password=vagrant priv=ALL role_attr_flags=CREATEDB,CREATEUSER
+    postgresql_user: db=vagrant name=vagrant password=vagrant priv=ALL role_attr_flags=CREATEDB,CREATEUSER
+  
 
 
 
