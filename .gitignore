@@ -1,3 +1,9 @@
 .DS_store
 .vagrant
-
+output-virtualbox-iso
+output-virtualbox-ovf2
+output-virtualbox-ovf3
+packer_cache
+step1-box
+step2-box
+step3-box
