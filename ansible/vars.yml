@@ -24,9 +24,6 @@ system_packages:
   - libpq-dev
   - libgdal1h
   - libgdal-dev
-  - postgresql-9.1
-  - postgresql-9.1-postgis-2.0
-  - postgresql-contrib-9.1
   - zlib1g-dev
   - libexpat1
   - libexpat1-dev
@@ -34,7 +31,6 @@ system_packages:
   - libxml2-dev
   - libgeos-dev
   - libgeos++-dev
-  - libprotobuf7
   - libprotobuf-dev
   - protobuf-compiler
   - libsparsehash-dev
@@ -51,8 +47,19 @@ system_packages:
   - libmapnik 
   - gdal-bin
   - mapnik-utils
-  - qgis
   - openjdk-7-jdk 
-  - proj 
   - libprotobuf-c0-dev
+  - libfontconfig1:i386
+  - libx11-6:i386 
+  - libxrender1:i386 
+  - libxext6:i386 
+  - libgl1-mesa-glx:i386 
+  - libglu1-mesa:i386 
+  - libglib2.0-0:i386 
+  - libsm6:i386
+#  - postgresql-9.1
+#  - postgresql-9.1-postgis-2.0
+#  - postgresql-contrib-9.1
+#  - proj 
+#  - libprotobuf7
 

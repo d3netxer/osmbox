@@ -2,7 +2,7 @@
 #play 1
 - hosts: all
   vars_files:
-    - vars.yml
+    - vars_step3.yml
   sudo: yes
   roles:
   - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
@@ -43,15 +43,28 @@
     file: path=/opt owner=vagrant group=vagrant state=directory recurse=yes
   - name: change permissions
     file: path=/usr/local/rvm owner=vagrant group=vagrant state=directory recurse=yes
+  - name: download Google Earth
+    get_url: url=http://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb dest=/tmp
+  - name: install lsb-core
+    apt: name=lsb-core state=present
+  - name: de-package Google Earth
+    command: "sudo dpkg -i google-earth-stable_current_i386.deb chdir=/tmp" 
+  - name: install Google Earth
+    command: "sudo apt-get install -f chdir=/tmp" 
+#  - name: Install required system packages 2.
+#    apt: pkg={{ item }} state=installed update-cache=yes
+#    with_items: 
+#      - "{{ system_packages }}"
 
 #play 2
 - hosts: all
   sudo: no
   gather_facts: no
 
-  tasks:
-  - name: bundler install
-    command: "bundle install chdir=/opt/osm-history/"
+#look into, failed because of extconf.rb
+#  tasks:
+#  - name: bundler install
+#    command: "bundle install chdir=/opt/osm-history/"
 
 #play 3
 - hosts: all
