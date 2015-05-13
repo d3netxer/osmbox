@@ -29,6 +29,7 @@
     state: 'link'
     src: '{{ rvm1_install_path }}/wrappers/default/{{ item }}'
     dest: '{{ rvm1_symlink_to }}/{{ item }}'
+    force: yes
     owner: 'root'
     group: 'root'
   when: not '--user-install' in rvm1_install_flags

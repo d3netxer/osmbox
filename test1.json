@@ -1,0 +1,15 @@
+{
+  "builders": [{
+      "type": "docker",
+      "image": "ubuntu",
+      "export_path": "ubuntu-ansible-1.6.tar"
+  }],
+  "provisioners": [{
+      "type": "shell",
+      "inline": [
+          "sudo add-apt-repository ppa:rquillo/ansible -y",
+          "apt-get update",
+          "apt-get install -y sudo ansible python-apt python-pycurl python-pip python-virtualenv"
+      ]
+  }]
+}
