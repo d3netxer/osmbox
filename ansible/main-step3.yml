@@ -45,12 +45,12 @@
     file: path=/usr/local/rvm owner=vagrant group=vagrant state=directory recurse=yes
   - name: download Google Earth
     get_url: url=http://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb dest=/tmp
-  - name: install lsb-core
-    apt: name=lsb-core state=present
-  - name: de-package Google Earth
-    command: "sudo dpkg -i google-earth-stable_current_i386.deb chdir=/tmp" 
-  - name: install Google Earth
-    command: "sudo apt-get install -f chdir=/tmp" 
+#  - name: install lsb-core
+#    apt: name=lsb-core state=present
+#  - name: de-package Google Earth
+#    command: "sudo dpkg -i google-earth-stable_current_i386.deb chdir=/tmp" 
+#  - name: install Google Earth
+#    command: "sudo apt-get install -f chdir=/tmp" 
 #  - name: Install required system packages 2.
 #    apt: pkg={{ item }} state=installed update-cache=yes
 #    with_items: 
