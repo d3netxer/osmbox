@@ -50,7 +50,7 @@
   - name: clone repo 3
     git: clone=yes repo=https://github.com/gravitystorm/openstreetmap-carto dest=/opt/openstreetmap-carto
   - name: clone repo 4
-    git: clone=yes repo=https://github.com/d3netxer/osm-history dest=/opt/osm-history
+    git: clone=yes repo=https://github.com/Project-EPIC/epic-osm dest=/opt/epic-osm
   - name: clone repo 5
     git: clone=yes repo=https://github.com/state-hiu/cybergis-scripts.git dest=/opt/cybergis-scripts.git
 

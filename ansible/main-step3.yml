@@ -7,6 +7,8 @@
   roles:
   - { role: rvm_io.rvm1-ruby, tags: ruby, sudo: True }
   tasks:
+  - name: disable crash reports
+    lineinfile: dest=/etc/default/apport regexp='1' line='enabled=0'
   - name: make doc osmium
     command: "make doc chdir=/opt/osmium/"
   - name: make install osmium
@@ -15,6 +17,8 @@
     command: "make chdir=/opt/osm-history-splitter/" 
   - name: add rvm to bashrc
     lineinfile: dest=/home/vagrant/.bashrc line="source /etc/profile.d/rvm.sh"
+#  - name: Install Google protobuf
+#    get_url: url=https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz dest=/bin
   - name: clone repo 6
     git: clone=yes repo=https://github.com/google/protobuf dest=/opt/protobuf
   - name: autogen protobuf
@@ -45,26 +49,27 @@
     file: path=/usr/local/rvm owner=vagrant group=vagrant state=directory recurse=yes
   - name: download Google Earth
     get_url: url=http://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb dest=/tmp
-#  - name: install lsb-core
-#    apt: name=lsb-core state=present
-#  - name: de-package Google Earth
-#    command: "sudo dpkg -i google-earth-stable_current_i386.deb chdir=/tmp" 
-#  - name: install Google Earth
-#    command: "sudo apt-get install -f chdir=/tmp" 
-#  - name: Install required system packages 2.
-#    apt: pkg={{ item }} state=installed update-cache=yes
-#    with_items: 
-#      - "{{ system_packages }}"
+  - name: install lsb-core
+    apt: name=lsb-core state=present
+  - name: de-package Google Earth
+    command: "sudo dpkg -i google-earth-stable_current_i386.deb chdir=/tmp" 
+  - name: install Google Earth
+    command: "sudo apt-get install -f chdir=/tmp" 
+  - name: Install required system packages 2.
+    apt: pkg={{ item }} state=installed update-cache=yes
+    with_items: 
+      - "{{ system_packages }}"
+
 
 #play 2
 - hosts: all
   sudo: no
   gather_facts: no
 
-#look into, failed because of extconf.rb
-#  tasks:
-#  - name: bundler install
-#    command: "bundle install chdir=/opt/osm-history/"
+#works with ruby 1.9.3 (failed with ruby 2.1.3 with a 'failed because of extconf.rb' error)
+ tasks:
+ - name: bundler install
+   command: "bundle install chdir=/opt/epic-osm/"
 
 #play 3
 - hosts: all
