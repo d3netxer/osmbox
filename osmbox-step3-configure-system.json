@@ -2,7 +2,7 @@
   "builders": [
     {
   "type": "virtualbox-ovf",
-  "vm_name": "osmbox-step3",
+  "vm_name": "osmbox",
   "source_path": "output-virtualbox-ovf2/osmbox-step2.ovf",
   "output_directory":"output-virtualbox-ovf3/",
   "ssh_username": "vagrant",
@@ -38,7 +38,7 @@
   "post-processors": [
     {
       "keep_input_artifact": true,
-      "output": "step3-box/osmbox-step3.box",
+      "output": "step3-box/osmbox.box",
       "type": "vagrant"
     }
   ]
