@@ -29,7 +29,7 @@ The final .ovf file will be inside the output-virtualbox-ovf3 directory. The fin
 
 ##What's installed
 
--ubuntu 12.04 desktop (credit to: https://github.com/boxcutter/ubuntu)
+-ubuntu 14.04 desktop (credit to: https://github.com/boxcutter/ubuntu)
 
 ###system_packages:
   - build-essential
@@ -87,36 +87,43 @@ The final .ovf file will be inside the output-virtualbox-ovf3 directory. The fin
   - openjdk-7-jdk 
   - proj 
   - libprotobuf-c0-dev
+  - libfontconfig1:i386
+  - libx11-6:i386 
+  - libxrender1:i386 
+  - libxext6:i386 
+  - libgl1-mesa-glx:i386 
+  - libglu1-mesa:i386 
+  - libglib2.0-0:i386 
+  - libsm6:i386
 
   ###repos:
 
   - osmium
   - osm-history-splitter
   - openstreetmap-carto
-  - openstreetmap-history
+  - epic-osm
   - protobuf
   - protobuf-c
 
-  ###openstreetmap-history gemfile installs:
+  ###Python packages:
 
-  - mongo 1.11.1
-  - bson 1.11.1
-  - bson_ext 1.11.1
-  - rgeo 0.3.20
-  - descriptive_statistics 2.5.1
-  - htmlentities 4.3.3
-  - jekyll 2.5.3
-  - pbf_parser 0.2.0
-  - nokogiri 1.6.6.2
-  - nori 2.4.0
-  - rspec 3.1.0
-  - byebug
+  - django
+  - psycopg2
+  - django-geojson
+  - requests
+  - pyyaml
+  - django-leaflet
 
   ###protobuf and protobuf-c are both compiled and installed
 
+  ###ruby 1.9.3 is installed
+
+  ###Google Earth is installed
+
   ###Ubuntu Personal Package Archives (PPAs):
 
-  - ubuntugis/ppa
+  - ubuntugis/ubuntugis-unstable
   - kakrueger/osm-unstable
   - developmentseed/mapbox
+  - rael-gc/rvm
 
